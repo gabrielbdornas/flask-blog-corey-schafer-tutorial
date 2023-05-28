@@ -3,9 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  {% if title %}
+    <title>Flask Blog - {{ title }}</title>
+  {% else %}
+    <title>Flask Blog</title>
+  {% endif %}
 </head>
 <body>
   <h1>Home page</h1>
+  {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.author }} on {{ post.date }}</p>
+    <p>{{ post.content }}</p>    
+  {% endfor%}
 </body>
 </html>
